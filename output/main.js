@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const aluguel_1 = require("./aluguel");
+const bicicleta_1 = require("./bicicleta");
+const pessoa_1 = require("./pessoa");
+const sistema_1 = require("./sistema");
+const sistema = new sistema_1.Sistema();
+sistema.cadastroBike(new bicicleta_1.Bicicleta("Shimano", "Veloci", 29, "Branca"));
+sistema.cadastroBike(new bicicleta_1.Bicicleta("KRW", "Spotlight", 26, "Preta"));
+sistema.cadastroBike(new bicicleta_1.Bicicleta("GTS", "M1", 26, "Amarela"));
+sistema.cadastroPessoa(new pessoa_1.Pessoa("Marcelo", 39047807296));
+sistema.cadastroPessoa(new pessoa_1.Pessoa("Alessandra", 11104236998));
+sistema.cadastroPessoa(new pessoa_1.Pessoa("Asdrubal", 25547103695));
+sistema.cadastroAluguel(new aluguel_1.Aluguel(sistema.bikModelo("M1"), sistema.pessoaPeloDocumento(11104236998), "2023/01/23", "2023-01-25", 25));
+sistema.cadastroAluguel(new aluguel_1.Aluguel(sistema.bikModelo("Spotlight"), sistema.pessoaPeloDocumento(39047807296), "2023/01/25", "2023-01-30", 32));
+console.log(sistema.alugueis);
